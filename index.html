@@ -79,32 +79,39 @@
 
       <div id="report-select"></div>
 
-      <label>Adressat der Meldung
-        <select id="f-recipient">
-          <option value="schule">Schulleitung</option>
-          <option value="arbeit">Arbeitgeber / Personalabteilung</option>
-          <option value="diskriminierung">Antidiskriminierungs-Beratungsstelle</option>
-        </select>
-      </label>
-
-      <button id="btn-draft" class="btn btn-dark">✉️ Meldungstext mit KI entwerfen</button>
-      <p id="draft-error" class="error" hidden></p>
-      <div id="draft-output" class="draft-box" hidden>
-        <div class="list-head">
-          <h3>Entwurf</h3>
-          <button id="btn-copy" class="btn btn-ghost small">Kopieren</button>
-        </div>
-        <pre id="draft-text"></pre>
+      <div id="pro-lock" class="upgrade-box" hidden>
+        <p><strong>🔒 Pro-Funktion</strong><br/>Die KI-gestützte Meldungserstellung ist Teil von Fall-Ordner Pro (4,99 €/Monat). Dokumentation & Anlaufstellen bleiben immer kostenlos.</p>
+        <a id="upgrade-link" href="#" target="_blank" class="btn btn-primary">Jetzt freischalten – 4,99 €/Monat</a>
       </div>
 
-      <details class="settings">
-        <summary>KI-Einstellungen (eigener API-Key)</summary>
-        <p class="hint">Diese App hat keinen eigenen Server. Um die KI-Funktion zu nutzen, hinterlege deinen eigenen Anthropic-API-Key. Er wird nur lokal in deinem Browser gespeichert — <strong>niemals fest im Code hinterlegen oder öffentlich teilen</strong>, da jede Person mit Zugriff auf den Browser ihn auslesen könnte.</p>
-        <label>API-Key
-          <input type="password" id="api-key" placeholder="sk-ant-…" />
+      <div id="pro-content">
+        <label>Adressat der Meldung
+          <select id="f-recipient">
+            <option value="schule">Schulleitung</option>
+            <option value="arbeit">Arbeitgeber / Personalabteilung</option>
+            <option value="diskriminierung">Antidiskriminierungs-Beratungsstelle</option>
+          </select>
         </label>
-        <button id="btn-save-key" class="btn btn-ghost small">Key speichern</button>
-      </details>
+
+        <button id="btn-draft" class="btn btn-dark">✉️ Meldungstext mit KI entwerfen</button>
+        <p id="draft-error" class="error" hidden></p>
+        <div id="draft-output" class="draft-box" hidden>
+          <div class="list-head">
+            <h3>Entwurf</h3>
+            <button id="btn-copy" class="btn btn-ghost small">Kopieren</button>
+          </div>
+          <pre id="draft-text"></pre>
+        </div>
+
+        <details class="settings">
+          <summary>KI-Einstellungen (eigener API-Key)</summary>
+          <p class="hint">Diese App hat keinen eigenen Server. Um die KI-Funktion zu nutzen, hinterlege deinen eigenen Anthropic-API-Key. Er wird nur lokal in deinem Browser gespeichert — <strong>niemals fest im Code hinterlegen oder öffentlich teilen</strong>, da jede Person mit Zugriff auf den Browser ihn auslesen könnte.</p>
+          <label>API-Key
+            <input type="password" id="api-key" placeholder="sk-ant-…" />
+          </label>
+          <button id="btn-save-key" class="btn btn-ghost small">Key speichern</button>
+        </details>
+      </div>
     </section>
 
     <!-- HILFE FINDEN -->

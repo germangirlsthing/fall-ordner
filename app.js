@@ -50,6 +50,27 @@ const HELP = [
 
 const STORAGE_KEY = "mobbing_faelle_v1";
 const API_KEY_STORAGE = "anthropic_api_key_v1";
+const PRO_STORAGE = "fallordner_pro_v1";
+// ⚠️ Hier deinen echten Stripe-Payment-Link eintragen, sobald du ihn erstellt hast:
+const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/HIER_DEINEN_LINK_EINTRAGEN";
+
+function isPro() {
+  return localStorage.getItem(PRO_STORAGE) === "true";
+}
+
+function renderProGate() {
+  const lock = document.getElementById("pro-lock");
+  const content = document.getElementById("pro-content");
+  const link = document.getElementById("upgrade-link");
+  link.href = STRIPE_PAYMENT_LINK;
+  if (isPro()) {
+    lock.hidden = true;
+    content.hidden = false;
+  } else {
+    lock.hidden = false;
+    content.hidden = true;
+  }
+}
 
 let entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 let selectedIds = new Set();
@@ -300,3 +321,4 @@ function renderHelp() {
 renderEntries();
 renderReportSelect();
 renderHelp();
+renderProGate();
