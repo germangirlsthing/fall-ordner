@@ -1,0 +1,10 @@
+{
+  "name": "Fall-Ordner gegen Mobbing & Diskriminierung",
+  "short_name": "Fall-Ordner",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F4F6F5",
+  "theme_color": "#14304A",
+  "description": "Vorfälle dokumentieren, Meldungen entwerfen, kostenlose Anlaufstellen finden.",
+  "icons": []
+}

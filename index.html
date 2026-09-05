@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fall-Ordner gegen Mobbing & Diskriminierung</title>
+<meta name="description" content="Vorfälle dokumentieren, Meldungen entwerfen, kostenlose Anlaufstellen finden." />
+<link rel="manifest" href="manifest.json" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="app-header">
+  <div class="wrap">
+    <div class="eyebrow">🛡 Dokumentation &amp; Meldehilfe</div>
+    <h1>Fall-Ordner gegen Mobbing &amp; Diskriminierung</h1>
+    <p>Vorfälle sicher festhalten, daraus eine sachliche Meldung entwerfen, und kostenlose Anlaufstellen finden — für Schule, Arbeitsplatz und Diskriminierung.</p>
+    <a href="business.html" style="display:inline-block;margin-top:6px;font-size:12.5px;color:#C9D6DD;text-decoration:underline;">Für Schulen & Unternehmen: Lizenz anfragen →</a>
+  </div>
+</header>
+
+<nav class="tabs wrap">
+  <button class="tab active" data-tab="doc">📝 Dokumentieren</button>
+  <button class="tab" data-tab="report">✉️ Meldung erstellen</button>
+  <button class="tab" data-tab="help">📞 Hilfe finden</button>
+</nav>
+
+<main class="wrap">
+  <div class="card">
+
+    <!-- DOKUMENTIEREN -->
+    <section id="tab-doc" class="tabpanel">
+      <h2>Neuen Vorfall festhalten</h2>
+      <p class="hint">Je genauer die Angaben, desto besser lässt sich später eine Meldung daraus ableiten. Die Einträge werden nur lokal auf diesem Gerät gespeichert.</p>
+
+      <form id="entry-form">
+        <div class="grid2">
+          <label>Datum
+            <input type="date" id="f-date" required />
+          </label>
+          <label>Kontext
+            <select id="f-context">
+              <option value="schule">Schule</option>
+              <option value="arbeit">Arbeitsplatz</option>
+              <option value="nachbarschaft">Nachbarschaft</option>
+              <option value="diskriminierung">Diskriminierung (allgemein)</option>
+            </select>
+          </label>
+        </div>
+        <label>Ort
+          <input type="text" id="f-place" placeholder="z. B. Pausenhof, Büro 3. Stock, Klassenchat" />
+        </label>
+        <div class="grid2">
+          <label>Beteiligte Personen
+            <input type="text" id="f-people" placeholder="Rollen statt Klarnamen möglich" />
+          </label>
+          <label>Zeug:innen
+            <input type="text" id="f-witnesses" />
+          </label>
+        </div>
+        <label>Was ist passiert?
+          <textarea id="f-description" rows="4" required placeholder="Möglichst konkret: was wurde gesagt oder getan, wie hast du reagiert, was ist danach passiert?"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">➕ Vorfall speichern</button>
+      </form>
+
+      <div class="divider"></div>
+      <div class="list-head">
+        <h3>Deine Einträge <span id="entry-count" class="mono muted"></span></h3>
+      </div>
+      <div id="entry-list" class="entry-list"></div>
+    </section>
+
+    <!-- MELDUNG ERSTELLEN -->
+    <section id="tab-report" class="tabpanel" hidden>
+      <h2>Meldung erstellen</h2>
+      <p class="hint">Wähle Vorfälle aus und lass daraus einen sachlichen Entwurf formulieren. Vor dem Versenden bitte prüfen und mit echten Namen/Daten ergänzen.</p>
+
+      <div id="report-select"></div>
+
+      <label>Adressat der Meldung
+        <select id="f-recipient">
+          <option value="schule">Schulleitung</option>
+          <option value="arbeit">Arbeitgeber / Personalabteilung</option>
+          <option value="diskriminierung">Antidiskriminierungs-Beratungsstelle</option>
+        </select>
+      </label>
+
+      <button id="btn-draft" class="btn btn-dark">✉️ Meldungstext mit KI entwerfen</button>
+      <p id="draft-error" class="error" hidden></p>
+      <div id="draft-output" class="draft-box" hidden>
+        <div class="list-head">
+          <h3>Entwurf</h3>
+          <button id="btn-copy" class="btn btn-ghost small">Kopieren</button>
+        </div>
+        <pre id="draft-text"></pre>
+      </div>
+
+      <details class="settings">
+        <summary>KI-Einstellungen (eigener API-Key)</summary>
+        <p class="hint">Diese App hat keinen eigenen Server. Um die KI-Funktion zu nutzen, hinterlege deinen eigenen Anthropic-API-Key. Er wird nur lokal in deinem Browser gespeichert — <strong>niemals fest im Code hinterlegen oder öffentlich teilen</strong>, da jede Person mit Zugriff auf den Browser ihn auslesen könnte.</p>
+        <label>API-Key
+          <input type="password" id="api-key" placeholder="sk-ant-…" />
+        </label>
+        <button id="btn-save-key" class="btn btn-ghost small">Key speichern</button>
+      </details>
+    </section>
+
+    <!-- HILFE FINDEN -->
+    <section id="tab-help" class="tabpanel" hidden>
+      <h2>Kostenlose Anlaufstellen</h2>
+      <p class="hint">Diese Angebote sind unabhängig, vertraulich und kostenfrei. Bei akuter Gefahr wähle direkt den Notruf 112.</p>
+      <div id="help-list"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="wrap footer">
+  <a href="business.html">Für Schulen & Unternehmen</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
