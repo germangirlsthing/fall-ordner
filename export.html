@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Fall-Akte – Export</title>
+<style>
+  body{font-family:Georgia,'Times New Roman',serif;color:#1C2624;max-width:800px;margin:40px auto;padding:0 24px;line-height:1.55;}
+  h1{font-size:22px;border-bottom:2px solid #14304A;padding-bottom:10px;}
+  .meta{font-size:12.5px;color:#555;margin-bottom:24px;}
+  .entry{border:1px solid #ccc;border-radius:6px;padding:14px 16px;margin-bottom:14px;page-break-inside:avoid;}
+  .entry h3{margin:0 0 6px;font-size:15px;}
+  .entry .tag{display:inline-block;background:#E4EFEC;color:#2F6E63;font-size:11px;padding:2px 8px;border-radius:999px;margin-left:8px;}
+  .entry p{margin:4px 0;font-size:13.5px;}
+  .entry .label{font-weight:700;}
+  .entry img{max-width:100%;border-radius:6px;margin-top:8px;border:1px solid #ccc;}
+  .entry img{max-width:100%;border-radius:6px;margin-top:8px;border:1px solid #ccc;}
+  .photo-meta{font-size:11px;color:#777;margin-top:4px;font-family:'IBM Plex Sans',sans-serif;}
+  .empty{color:#777;font-style:italic;}
+  .footer-note{margin-top:30px;font-size:11.5px;color:#777;border-top:1px solid #ccc;padding-top:10px;}
+  @media print{ .no-print{display:none;} body{margin:0;padding:0 10mm;} }
+  .no-print{margin-bottom:20px;}
+  button{font-family:inherit;padding:8px 16px;border-radius:6px;border:none;background:#14304A;color:#fff;font-weight:600;cursor:pointer;}
+</style>
+</head>
+<body>
+  <div class="no-print"><button onclick="window.print()">🖨 Jetzt drucken / als PDF speichern</button></div>
+  <h1>Fall-Akte — Dokumentierte Vorfälle</h1>
+  <div class="meta" id="meta"></div>
+  <div id="entries"></div>
+  <div class="footer-note">Erstellt mit dem Fall-Ordner. Dieses Dokument ist eine private Zusammenstellung dokumentierter Angaben und ersetzt keine rechtliche Beratung.</div>
+
+  <script>
+    const CONTEXTS = { schule: "Schule", arbeit: "Arbeitsplatz", nachbarschaft: "Nachbarschaft", diskriminierung: "Diskriminierung (allgemein)" };
+    function esc(s){ const d=document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+    const entries = JSON.parse(localStorage.getItem("mobbing_faelle_v1") || "[]");
+    document.getElementById("meta").textContent = `Erstellt am ${new Date().toLocaleDateString("de-DE")} · ${entries.length} Vorfälle`;
+    const container = document.getElementById("entries");
+    if (entries.length === 0) {
+      container.innerHTML = '<p class="empty">Keine Vorfälle dokumentiert.</p>';
+    } else {
+      const sorted = [...entries].sort((a,b) => a.date.localeCompare(b.date));
+      sorted.forEach((e, i) => {
+        const div = document.createElement("div");
+        div.className = "entry";
+        div.innerHTML = `
+          <h3>Vorfall ${i+1} — ${esc(e.date)} <span class="tag">${esc(CONTEXTS[e.context] || e.context)}</span></h3>
+          ${e.place ? `<p><span class="label">Ort:</span> ${esc(e.place)}</p>` : ""}
+          ${e.people ? `<p><span class="label">Beteiligte:</span> ${esc(e.people)}</p>` : ""}
+          ${e.witnesses ? `<p><span class="label">Zeug:innen:</span> ${esc(e.witnesses)}</p>` : ""}
+          <p><span class="label">Beschreibung:</span> ${esc(e.description)}</p>
+          ${e.photo ? `<img src="${e.photo}" alt="Anhang" /><div class="photo-meta">Hochgeladen am: ${esc(e.photoUploadedAt || "")}</div>` : ""}
+        `;
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

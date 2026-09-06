@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Geteilte Fall-Akte</title>
+<meta name="robots" content="noindex, nofollow" />
+<style>
+  body{font-family:Georgia,'Times New Roman',serif;color:#1C2624;max-width:800px;margin:40px auto;padding:0 24px;line-height:1.55;background:#F4F6F5;}
+  h1{font-size:22px;border-bottom:2px solid #14304A;padding-bottom:10px;}
+  .notice{background:#E4EFEC;border:1px solid #2F6E63;border-radius:8px;padding:12px 16px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;margin-bottom:20px;}
+  .meta{font-size:12.5px;color:#555;margin-bottom:24px;font-family:'IBM Plex Sans',sans-serif;}
+  .entry{border:1px solid #ccc;border-radius:6px;padding:14px 16px;margin-bottom:14px;background:#fff;}
+  .entry h3{margin:0 0 6px;font-size:15px;}
+  .entry .tag{display:inline-block;background:#E4EFEC;color:#2F6E63;font-size:11px;padding:2px 8px;border-radius:999px;margin-left:8px;font-family:'IBM Plex Sans',sans-serif;}
+  .entry p{margin:4px 0;font-size:13.5px;}
+  .entry .label{font-weight:700;}
+  .entry img{max-width:100%;border-radius:6px;margin-top:8px;border:1px solid #ccc;}
+  .empty{color:#777;font-style:italic;}
+  .error{color:#B5453A;font-family:'IBM Plex Sans',sans-serif;}
+</style>
+</head>
+<body>
+  <div class="notice">🔒 Dies ist eine anonym geteilte Fall-Akte. Die Daten stammen ausschließlich aus dem Link selbst — es gibt keinen Server, der sie speichert.</div>
+  <h1>Geteilte Fall-Akte</h1>
+  <div class="meta" id="meta"></div>
+  <div id="entries"></div>
+
+  <script>
+    const CONTEXTS = { schule: "Schule", arbeit: "Arbeitsplatz", nachbarschaft: "Nachbarschaft", diskriminierung: "Diskriminierung (allgemein)" };
+    function esc(s){ const d=document.createElement("div"); d.textContent = s || ""; return d.innerHTML; }
+    const container = document.getElementById("entries");
+    const metaEl = document.getElementById("meta");
+
+    try {
+      const hash = window.location.hash.slice(1);
+      if (!hash) throw new Error("no-data");
+      const json = decodeURIComponent(escape(atob(hash)));
+      const entries = JSON.parse(json);
+      metaEl.textContent = `${entries.length} dokumentierte Vorfälle · Geöffnet am ${new Date().toLocaleDateString("de-DE")}`;
+      if (entries.length === 0) {
+        container.innerHTML = '<p class="empty">Keine Vorfälle in diesem Link.</p>';
+      } else {
+        [...entries].sort((a,b)=>a.date.localeCompare(b.date)).forEach((e, i) => {
+          const div = document.createElement("div");
+          div.className = "entry";
+          div.innerHTML = `
+            <h3>Vorfall ${i+1} — ${esc(e.date)} <span class="tag">${esc(CONTEXTS[e.context] || e.context)}</span></h3>
+            ${e.place ? `<p><span class="label">Ort:</span> ${esc(e.place)}</p>` : ""}
+            ${e.people ? `<p><span class="label">Beteiligte:</span> ${esc(e.people)}</p>` : ""}
+            ${e.witnesses ? `<p><span class="label">Zeug:innen:</span> ${esc(e.witnesses)}</p>` : ""}
+            <p><span class="label">Beschreibung:</span> ${esc(e.description)}</p>
+            ${e.photo ? `<img src="${e.photo}" alt="Anhang" />` : ""}
+          `;
+          container.appendChild(div);
+        });
+      }
+    } catch (err) {
+      container.innerHTML = '<p class="error">Dieser Link enthält keine gültigen Daten oder wurde beschädigt.</p>';
+    }
+  </script>
+</body>
+</html>

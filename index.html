@@ -3,27 +3,69 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Fall-Ordner gegen Mobbing & Diskriminierung</title>
-<meta name="description" content="Vorfälle dokumentieren, Meldungen entwerfen, kostenlose Anlaufstellen finden." />
+<title>Fall-Ordner gegen Mobbing & Diskriminierung – Vorfälle dokumentieren & Hilfe finden</title>
+<meta name="description" content="Kostenlos Mobbing- und Diskriminierungsvorfälle dokumentieren, sachliche Meldungen entwerfen und kostenlose Anlaufstellen für Schule, Arbeitsplatz und Eltern finden." />
+<meta name="keywords" content="Mobbing dokumentieren, Mobbing Schule, Mobbing Arbeitsplatz, Diskriminierung melden, Mobbing Hilfe, Anlaufstellen Mobbing, Cybermobbing, Mobbing Beratung" />
+<link rel="canonical" href="https://germangirlsthing.github.io/fall-ordner/" />
+<meta name="robots" content="index, follow" />
+
+<!-- Open Graph / Social-Media-Vorschau -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Fall-Ordner gegen Mobbing & Diskriminierung" />
+<meta property="og:description" content="Vorfälle dokumentieren, Meldungen entwerfen, kostenlose Anlaufstellen finden — für Schule, Arbeitsplatz und Diskriminierung." />
+<meta property="og:url" content="https://germangirlsthing.github.io/fall-ordner/" />
+<meta property="og:locale" content="de_DE" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Fall-Ordner gegen Mobbing & Diskriminierung" />
+<meta name="twitter:description" content="Vorfälle dokumentieren, Meldungen entwerfen, kostenlose Anlaufstellen finden." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fall-Ordner gegen Mobbing & Diskriminierung",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any (Web)",
+  "url": "https://germangirlsthing.github.io/fall-ordner/",
+  "description": "Vorfälle dokumentieren, Meldungen entwerfen und kostenlose Anlaufstellen gegen Mobbing und Diskriminierung finden.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "inLanguage": "de"
+}
+</script>
+
 <link rel="manifest" href="manifest.json" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="app-header">
   <div class="wrap">
-    <div class="eyebrow">🛡 Dokumentation &amp; Meldehilfe</div>
-    <h1>Fall-Ordner gegen Mobbing &amp; Diskriminierung</h1>
-    <p>Vorfälle sicher festhalten, daraus eine sachliche Meldung entwerfen, und kostenlose Anlaufstellen finden — für Schule, Arbeitsplatz und Diskriminierung.</p>
-    <a href="business.html" style="display:inline-block;margin-top:6px;font-size:12.5px;color:#C9D6DD;text-decoration:underline;">Für Schulen & Unternehmen: Lizenz anfragen →</a>
+    <div class="lang-switch">
+      <label for="lang-select" data-i18n="langLabel">Sprache</label>
+      <select id="lang-select">
+        <option value="de">Deutsch</option>
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="tr">Türkçe</option>
+        <option value="ku">Kurmancî</option>
+      </select>
+    </div>
+    <div class="eyebrow" data-i18n="eyebrow">🛡 Dokumentation &amp; Meldehilfe</div>
+    <h1 data-i18n="title">Fall-Ordner gegen Mobbing &amp; Diskriminierung</h1>
+    <p data-i18n="subtitle">Vorfälle sicher festhalten, daraus eine sachliche Meldung entwerfen, und kostenlose Anlaufstellen finden — für Schule, Arbeitsplatz und Diskriminierung.</p>
+    <a href="business.html" data-i18n="businessLink" style="display:inline-block;margin-top:6px;font-size:12.5px;color:#C9D6DD;text-decoration:underline;">Für Schulen & Unternehmen: Lizenz anfragen →</a>
   </div>
 </header>
 
 <nav class="tabs wrap">
-  <button class="tab active" data-tab="doc">📝 Dokumentieren</button>
-  <button class="tab" data-tab="report">✉️ Meldung erstellen</button>
-  <button class="tab" data-tab="help">📞 Hilfe finden</button>
+  <button class="tab active" data-tab="doc" data-i18n="tabDoc">📝 Dokumentieren</button>
+  <button class="tab" data-tab="report" data-i18n="tabReport">✉️ Meldung erstellen</button>
+  <button class="tab" data-tab="help" data-i18n="tabHelp">📞 Hilfe finden</button>
 </nav>
 
 <main class="wrap">
@@ -31,93 +73,118 @@
 
     <!-- DOKUMENTIEREN -->
     <section id="tab-doc" class="tabpanel">
-      <h2>Neuen Vorfall festhalten</h2>
-      <p class="hint">Je genauer die Angaben, desto besser lässt sich später eine Meldung daraus ableiten. Die Einträge werden nur lokal auf diesem Gerät gespeichert.</p>
+      <h2 data-i18n="docHeading">Neuen Vorfall festhalten</h2>
+      <p class="hint" data-i18n="docHint">Je genauer die Angaben, desto besser lässt sich später eine Meldung daraus ableiten. Die Einträge werden nur lokal auf diesem Gerät gespeichert.</p>
 
       <form id="entry-form">
         <div class="grid2">
-          <label>Datum
+          <label data-i18n="labelDate">Datum
             <input type="date" id="f-date" required />
           </label>
-          <label>Kontext
+          <label data-i18n="labelContext">Kontext
             <select id="f-context">
-              <option value="schule">Schule</option>
-              <option value="arbeit">Arbeitsplatz</option>
-              <option value="nachbarschaft">Nachbarschaft</option>
-              <option value="diskriminierung">Diskriminierung (allgemein)</option>
+              <option value="schule" data-i18n="ctxSchule">Schule</option>
+              <option value="arbeit" data-i18n="ctxArbeit">Arbeitsplatz</option>
+              <option value="nachbarschaft" data-i18n="ctxNachbarschaft">Nachbarschaft</option>
+              <option value="diskriminierung" data-i18n="ctxDiskriminierung">Diskriminierung (allgemein)</option>
             </select>
           </label>
         </div>
-        <label>Ort
-          <input type="text" id="f-place" placeholder="z. B. Pausenhof, Büro 3. Stock, Klassenchat" />
+        <label data-i18n="labelPlace">Ort
+          <input type="text" id="f-place" data-i18n-placeholder="placeholderPlace" placeholder="z. B. Pausenhof, Büro 3. Stock, Klassenchat" />
         </label>
         <div class="grid2">
-          <label>Beteiligte Personen
-            <input type="text" id="f-people" placeholder="Rollen statt Klarnamen möglich" />
+          <label data-i18n="labelPeople">Beteiligte Personen
+            <input type="text" id="f-people" data-i18n-placeholder="placeholderPeople" placeholder="Rollen statt Klarnamen möglich" />
           </label>
-          <label>Zeug:innen
+          <label data-i18n="labelWitnesses">Zeug:innen
             <input type="text" id="f-witnesses" />
           </label>
         </div>
-        <label>Was ist passiert?
-          <textarea id="f-description" rows="4" required placeholder="Möglichst konkret: was wurde gesagt oder getan, wie hast du reagiert, was ist danach passiert?"></textarea>
+        <label data-i18n="labelDescription">Was ist passiert?
+          <textarea id="f-description" rows="4" required data-i18n-placeholder="placeholderDescription" placeholder="Möglichst konkret: was wurde gesagt oder getan, wie hast du reagiert, was ist danach passiert?"></textarea>
         </label>
-        <button type="submit" class="btn btn-primary">➕ Vorfall speichern</button>
+        <label data-i18n="labelPhoto">Foto/Screenshot anhängen (optional)
+          <input type="file" id="f-photo" accept="image/*" />
+        </label>
+        <div id="photo-preview" hidden></div>
+        <button type="submit" class="btn btn-primary" data-i18n="btnSaveEntry">➕ Vorfall speichern</button>
       </form>
 
       <div class="divider"></div>
-      <div class="list-head">
-        <h3>Deine Einträge <span id="entry-count" class="mono muted"></span></h3>
+      <div id="pattern-section" hidden>
+        <div class="list-head">
+          <h3 data-i18n="patternHeading">📊 Muster & Verlauf</h3>
+        </div>
+        <div id="pattern-stats" class="pattern-grid"></div>
+        <div id="escalation-badge" class="escalation-badge"></div>
+        <div id="pattern-chart" class="pattern-chart"></div>
+        <div id="next-steps" class="next-steps-box"></div>
       </div>
+
+      <div class="divider"></div>
+      <div class="list-head">
+        <h3><span data-i18n="entriesHeading">Deine Einträge</span> <span id="entry-count" class="mono muted"></span></h3>
+        <div class="head-actions">
+          <button id="btn-share" class="btn btn-ghost small" data-i18n="btnShare" hidden>🔗 Anonymen Teilen-Link erstellen</button>
+          <button id="btn-export-pdf" class="btn btn-ghost small" data-i18n="btnExportPdf" hidden>🖨 Als PDF / Ausdruck exportieren</button>
+        </div>
+      </div>
+      <div id="share-box" class="share-box" hidden></div>
       <div id="entry-list" class="entry-list"></div>
     </section>
 
     <!-- MELDUNG ERSTELLEN -->
     <section id="tab-report" class="tabpanel" hidden>
-      <h2>Meldung erstellen</h2>
-      <p class="hint">Wähle Vorfälle aus und lass daraus einen sachlichen Entwurf formulieren. Vor dem Versenden bitte prüfen und mit echten Namen/Daten ergänzen.</p>
+      <h2 data-i18n="reportHeading">Meldung erstellen</h2>
+      <p class="hint" data-i18n="reportHint">Wähle Vorfälle aus und lass daraus einen sachlichen Entwurf formulieren. Vor dem Versenden bitte prüfen und mit echten Namen/Daten ergänzen.</p>
 
       <div id="report-select"></div>
 
       <div id="pro-lock" class="upgrade-box" hidden>
-        <p><strong>🔒 Pro-Funktion</strong><br/>Die KI-gestützte Meldungserstellung ist Teil von Fall-Ordner Pro (4,99 €/Monat). Dokumentation & Anlaufstellen bleiben immer kostenlos.</p>
-        <a id="upgrade-link" href="#" target="_blank" class="btn btn-primary">Jetzt freischalten – 4,99 €/Monat</a>
+        <p><strong data-i18n="proLockTitle">🔒 Pro-Funktion</strong><br/><span data-i18n="proLockText">Die KI-gestützte Meldungserstellung ist Teil von Fall-Ordner Pro (4,99 €/Monat). Dokumentation & Anlaufstellen bleiben immer kostenlos.</span></p>
+        <a id="upgrade-link" href="#" target="_blank" class="btn btn-primary" data-i18n="btnUpgrade">Jetzt freischalten – 4,99 €/Monat</a>
+        <div class="license-row">
+          <input type="text" id="license-code" data-i18n-placeholder="licenseCodePlaceholder" placeholder="oder: Institutions-Lizenzcode" />
+          <button id="btn-activate-code" class="btn btn-ghost small" data-i18n="btnActivateCode">Aktivieren</button>
+        </div>
+        <p id="license-error" class="error" hidden></p>
       </div>
 
       <div id="pro-content">
-        <label>Adressat der Meldung
+        <label data-i18n="labelRecipient">Adressat der Meldung
           <select id="f-recipient">
-            <option value="schule">Schulleitung</option>
-            <option value="arbeit">Arbeitgeber / Personalabteilung</option>
-            <option value="diskriminierung">Antidiskriminierungs-Beratungsstelle</option>
+            <option value="schule" data-i18n="recipientSchule">Schulleitung</option>
+            <option value="arbeit" data-i18n="recipientArbeit">Arbeitgeber / Personalabteilung</option>
+            <option value="diskriminierung" data-i18n="recipientDiskriminierung">Antidiskriminierungs-Beratungsstelle</option>
           </select>
         </label>
 
-        <button id="btn-draft" class="btn btn-dark">✉️ Meldungstext mit KI entwerfen</button>
+        <button id="btn-draft" class="btn btn-dark" data-i18n="btnDraft">✉️ Meldungstext mit KI entwerfen</button>
         <p id="draft-error" class="error" hidden></p>
         <div id="draft-output" class="draft-box" hidden>
           <div class="list-head">
-            <h3>Entwurf</h3>
-            <button id="btn-copy" class="btn btn-ghost small">Kopieren</button>
+            <h3 data-i18n="draftHeading">Entwurf</h3>
+            <button id="btn-copy" class="btn btn-ghost small" data-i18n="btnCopy">Kopieren</button>
           </div>
           <pre id="draft-text"></pre>
         </div>
 
         <details class="settings">
-          <summary>KI-Einstellungen (eigener API-Key)</summary>
-          <p class="hint">Diese App hat keinen eigenen Server. Um die KI-Funktion zu nutzen, hinterlege deinen eigenen Anthropic-API-Key. Er wird nur lokal in deinem Browser gespeichert — <strong>niemals fest im Code hinterlegen oder öffentlich teilen</strong>, da jede Person mit Zugriff auf den Browser ihn auslesen könnte.</p>
-          <label>API-Key
+          <summary data-i18n="settingsSummary">KI-Einstellungen (eigener API-Key)</summary>
+          <p class="hint" data-i18n="settingsHint">Diese App hat keinen eigenen Server. Um die KI-Funktion zu nutzen, hinterlege deinen eigenen Anthropic-API-Key. Er wird nur lokal in deinem Browser gespeichert — niemals fest im Code hinterlegen oder öffentlich teilen.</p>
+          <label data-i18n="labelApiKey">API-Key
             <input type="password" id="api-key" placeholder="sk-ant-…" />
           </label>
-          <button id="btn-save-key" class="btn btn-ghost small">Key speichern</button>
+          <button id="btn-save-key" class="btn btn-ghost small" data-i18n="btnSaveKey">Key speichern</button>
         </details>
       </div>
     </section>
 
     <!-- HILFE FINDEN -->
     <section id="tab-help" class="tabpanel" hidden>
-      <h2>Kostenlose Anlaufstellen</h2>
-      <p class="hint">Diese Angebote sind unabhängig, vertraulich und kostenfrei. Bei akuter Gefahr wähle direkt den Notruf 112.</p>
+      <h2 data-i18n="helpHeading">Kostenlose Anlaufstellen</h2>
+      <p class="hint" data-i18n="helpHint">Diese Angebote sind unabhängig, vertraulich und kostenfrei. Bei akuter Gefahr wähle direkt den Notruf 112.</p>
       <div id="help-list"></div>
     </section>
 
@@ -125,9 +192,11 @@
 </main>
 
 <footer class="wrap footer">
-  <a href="business.html">Für Schulen & Unternehmen</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a>
+  <a href="business.html" data-i18n="footerBusiness">Für Schulen & Unternehmen</a> · <a href="datenschutz.html" data-i18n="footerPrivacy">Datenschutz</a> · <a href="impressum.html" data-i18n="footerImpressum">Impressum</a>
+  <div class="credit">Ein Projekt von Dorra Gafsi</div>
 </footer>
 
+<script src="i18n.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

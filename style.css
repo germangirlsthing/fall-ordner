@@ -4,9 +4,17 @@
 }
 *{box-sizing:border-box;}
 body{margin:0;background:var(--sand);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;}
+body.rtl{font-family:'Noto Sans Arabic','IBM Plex Sans',system-ui,sans-serif;}
+body.rtl .mono{direction:ltr;display:inline-block;}
 .wrap{max-width:720px;margin:0 auto;padding:0 20px;}
 .mono{font-family:'IBM Plex Mono',monospace;}
 .muted{color:var(--ink-soft);}
+
+.lang-switch{display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:10px;font-size:12px;}
+.lang-switch label{color:#C9D6DD;margin:0;}
+.lang-switch select{width:auto;margin:0;padding:4px 8px;font-size:12.5px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff;}
+.lang-switch select option{color:#1C2624;}
+body.rtl .lang-switch{justify-content:flex-start;}
 
 .app-header{background:var(--navy);color:#fff;padding:28px 0 24px;border-bottom:4px solid var(--teal);}
 .app-header .wrap{padding:0 20px;}
@@ -69,9 +77,45 @@ textarea{resize:vertical;}
 
 .footer{padding:20px;text-align:center;font-size:12px;color:var(--ink-soft);}
 .footer a{color:var(--ink-soft);}
+.footer .credit{margin-top:6px;font-size:11px;color:#8A9490;}
 
 .upgrade-box{background:var(--teal-light);border:1px solid var(--teal);border-radius:10px;padding:16px;margin-bottom:16px;font-size:13.5px;}
 .upgrade-box p{margin:0 0 12px;}
+.license-row{display:flex;gap:8px;margin-top:10px;}
+.license-row input{margin:0;flex:1;}
+.license-row button{white-space:nowrap;}
 .pro-badge{display:inline-block;background:var(--gold);color:#fff;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:6px;vertical-align:middle;}
 
-@media(max-width:480px){.grid2{grid-template-columns:1fr;}}
+.pattern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.stat-box{background:var(--teal-light);border-radius:8px;padding:12px;text-align:center;}
+.stat-num{font-family:'Fraunces',serif;font-weight:600;font-size:15px;color:var(--navy);word-break:break-word;}
+.stat-label{font-size:11px;color:var(--ink-soft);margin-top:2px;}
+.pattern-chart{border:1px solid var(--line);border-radius:8px;padding:14px;display:flex;align-items:flex-end;gap:8px;overflow-x:auto;min-height:110px;position:relative;margin-bottom:14px;}
+.chart-label{position:absolute;top:8px;left:14px;font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+.bar-col{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:38px;margin-top:24px;}
+.bar{width:20px;background:var(--teal);border-radius:4px 4px 0 0;}
+.bar-label{font-size:9.5px;color:var(--ink-soft);white-space:nowrap;}
+.escalation-note{width:100%;margin:10px 0 0;font-size:12px;color:var(--gold);font-weight:600;}
+
+.escalation-badge{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:14px;font-size:13px;}
+.esc-dot{width:16px;height:16px;border-radius:50%;flex-shrink:0;}
+.esc-low{background:#4CAF6D;}
+.esc-medium{background:var(--gold);}
+.esc-high{background:var(--red);}
+.esc-desc{color:var(--ink-soft);font-size:12px;margin-top:2px;}
+
+.next-steps-box{background:var(--teal-light);border-radius:8px;padding:14px 16px;}
+.next-steps-box h4{margin:0 0 8px;font-size:13.5px;font-family:'Fraunces',serif;}
+.next-steps-box ul{margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:var(--ink-soft);}
+
+.head-actions{display:flex;gap:6px;flex-wrap:wrap;}
+.share-box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:14px;}
+.share-warning{color:var(--gold);font-size:12.5px;font-weight:600;margin:6px 0;}
+.share-link-row{display:flex;gap:8px;margin-top:8px;}
+.share-link-row input{margin:0;flex:1;font-size:11.5px;}
+.share-link-row button{white-space:nowrap;}
+
+.entry-photo{max-width:100%;border-radius:6px;margin-top:8px;border:1px solid var(--line);display:block;}
+.photo-meta{font-size:11px;color:var(--ink-soft);margin-top:4px;}
+
+@media(max-width:480px){.grid2{grid-template-columns:1fr;} .pattern-grid{grid-template-columns:1fr;}}
